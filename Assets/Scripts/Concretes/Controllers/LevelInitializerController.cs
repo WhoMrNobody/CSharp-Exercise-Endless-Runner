@@ -19,6 +19,7 @@ namespace UdemyCourse2.Controller
             RenderSettings.skybox = _levelDifficultyData.SkyboxMaterial;
             Instantiate(_levelDifficultyData.FloorPrefab);
             Instantiate(_levelDifficultyData.Spawners);
+            EnemyManager.Instance.SetMoveSpeed(_levelDifficultyData.MoveSpeed);
         }
 
 

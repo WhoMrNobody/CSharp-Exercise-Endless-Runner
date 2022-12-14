@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using UdemyCourse2.Abstracts.Utilities;
 using UdemyCourse2.Controller;
@@ -13,9 +14,10 @@ namespace UdemyCourse2.Managers
         [SerializeField] float _addDelayTime = 20f;
 
         Dictionary<EnemyEnum,Queue<EnemyController>> _enemies = new Dictionary<EnemyEnum, Queue<EnemyController>>(); 
-
         public float AddDelayTime => _addDelayTime;
         public int Count => _enemyPrefabs.Length;
+        float _moveSpeed;
+
         private void Awake()
         {
             SingletonThisObject(this);
@@ -67,7 +69,15 @@ namespace UdemyCourse2.Managers
                 
             }
 
-            return enemyControllers.Dequeue();
+            EnemyController enemyController = enemyControllers.Dequeue();
+            enemyController.SetMoveSpeed(_moveSpeed);
+
+            return enemyController;
+        }
+
+        internal void SetMoveSpeed(float moveSpeed)
+        {
+            _moveSpeed= moveSpeed;
         }
 
     } //class

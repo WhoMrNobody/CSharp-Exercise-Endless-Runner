@@ -11,10 +11,12 @@ namespace UdemyCourse2.ScriptableObjects
         [SerializeField] FloorController _floorPrefab;
         [SerializeField] GameObject _spawners;
         [SerializeField] Material _skyboxMaterial;
+        [SerializeField] float _moveSpeed = 10f;
 
         public FloorController FloorPrefab => _floorPrefab;
         public GameObject Spawners => _spawners;
         public Material SkyboxMaterial => _skyboxMaterial;
+        public float MoveSpeed => _moveSpeed;
     }
 
 }
