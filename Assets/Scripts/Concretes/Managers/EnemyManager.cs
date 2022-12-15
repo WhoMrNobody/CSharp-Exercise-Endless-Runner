@@ -64,6 +64,7 @@ namespace UdemyCourse2.Managers
                 for (int i = 0; i < 2; i++)
                 {
                     EnemyController newEnemy = Instantiate(_enemyPrefabs[(int)enemyType]);
+                    newEnemy.gameObject.SetActive(false);
                     enemyControllers.Enqueue(newEnemy);
                 }
                 
@@ -78,6 +79,11 @@ namespace UdemyCourse2.Managers
         internal void SetMoveSpeed(float moveSpeed)
         {
             _moveSpeed= moveSpeed;
+        }
+
+        public void SetAddDelayTime(float addDelayTime)
+        {
+            _addDelayTime= addDelayTime;
         }
 
     } //class

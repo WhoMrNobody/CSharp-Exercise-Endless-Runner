@@ -9,23 +9,19 @@ namespace UdemyCourse2.Movements
 {
     public class HorizontalMovements : IMover
     {
-        IEntityControllers _playerController;
-        float _moveSpeed;
-        float _moveBoundary;
+        IEntityControllers _iEntityController;
         public HorizontalMovements(IEntityControllers iEntityControllers)
         {
-            _playerController = iEntityControllers;
-            _moveSpeed = iEntityControllers.MoveSpeed;
-            _moveBoundary = iEntityControllers.MoveBoundary;
+            _iEntityController = iEntityControllers;
         }
 
         public void FixedTick(float horizontal)
         {
             if (horizontal == 0) return;
-            _playerController.transform.Translate(Vector3.right * horizontal * Time.deltaTime * _moveSpeed);
+            _iEntityController.transform.Translate(Vector3.right * horizontal * Time.deltaTime * _iEntityController.MoveSpeed);
 
-            float xBoundary = Mathf.Clamp(_playerController.transform.position.x, -_moveBoundary, _moveBoundary);
-            _playerController.transform.position = new Vector3(xBoundary, _playerController.transform.position.y, 0);
+            float xBoundary = Mathf.Clamp(_iEntityController.transform.position.x, -_iEntityController.MoveBoundary, _iEntityController.MoveBoundary);
+            _iEntityController.transform.position = new Vector3(xBoundary, _iEntityController.transform.position.y, 0);
         }
     }
 

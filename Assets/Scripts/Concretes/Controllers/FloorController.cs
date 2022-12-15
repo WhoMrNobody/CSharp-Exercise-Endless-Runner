@@ -6,7 +6,7 @@ namespace UdemyCourse2.Controller
 {
     public class FloorController : MonoBehaviour
     {
-        [Range(0.5f, 2f)]
+        [Range(0.5f, 2.5f)]
         [SerializeField] float _floorMoveSpeed ;
         Material _groundMaterial;
 

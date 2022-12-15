@@ -10,16 +10,16 @@ namespace UdemyCourse2.Movements
     public class VerticalMover : IMover
     {
         IEntityControllers _iEntityController;
-        float _moveSpeed;
+        
         public VerticalMover(IEntityControllers iEntityController)
         {
             _iEntityController = iEntityController;
-            _moveSpeed= _iEntityController.MoveSpeed;
+            
         }
 
         public void FixedTick(float vertical = 1f)
         {
-            _iEntityController.transform.Translate(Vector3.back * vertical * _moveSpeed * Time.deltaTime);
+            _iEntityController.transform.Translate(Vector3.back * vertical * _iEntityController.MoveSpeed * Time.deltaTime);
         }
 
     }

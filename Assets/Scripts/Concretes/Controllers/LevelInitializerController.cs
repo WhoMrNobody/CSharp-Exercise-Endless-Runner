@@ -20,6 +20,7 @@ namespace UdemyCourse2.Controller
             Instantiate(_levelDifficultyData.FloorPrefab);
             Instantiate(_levelDifficultyData.Spawners);
             EnemyManager.Instance.SetMoveSpeed(_levelDifficultyData.MoveSpeed);
+            EnemyManager.Instance.SetAddDelayTime(_levelDifficultyData.AddDelayTime);
         }
 
 
