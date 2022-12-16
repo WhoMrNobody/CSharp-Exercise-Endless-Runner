@@ -6,12 +6,12 @@ using UnityEngine;
 namespace UdemyCourse2.UIs
 {
     public class MenuPanel : MonoBehaviour
-    {
-        public void StartGame()
+    {   
+        public void DifficultySelect(int index)
         {
+            GameManager.Instance.DifficultyIndex= index;
             GameManager.Instance.NextLoadScene("GameScene");
         }
-
         public void ExitGame()
         {
             GameManager.Instance.ExitGame();

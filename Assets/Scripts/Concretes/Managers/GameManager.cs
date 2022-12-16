@@ -11,9 +11,27 @@ namespace UdemyCourse2.Managers
     {
         [SerializeField] LevelDifficultyData[] _levelDifficultyDatas;
 
-        public LevelDifficultyData LevelDifficultyData => _levelDifficultyDatas[0];
+        public LevelDifficultyData LevelDifficultyData => _levelDifficultyDatas[DifficultyIndex];
 
         public event System.Action OnGameStop;
+
+        int _levelDifficultyIndex;
+        public int DifficultyIndex 
+        {   
+            get => _levelDifficultyIndex;
+            set
+            {
+                if(_levelDifficultyIndex < 0 || _levelDifficultyIndex > _levelDifficultyDatas.Length)
+                {
+                    LoadSceneAsync("MainMenuScene");
+                }
+                else
+                {
+                    _levelDifficultyIndex = value;
+                }
+            }
+
+        }
         private void Awake()
         {
             SingletonThisObject(this);
@@ -26,7 +44,8 @@ namespace UdemyCourse2.Managers
         }
 
         public void NextLoadScene(string sceneName)
-        {
+        {   
+          
             StartCoroutine(LoadSceneAsync(sceneName));
         }
 
